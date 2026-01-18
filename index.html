@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#fff1f6;
+  color:#4b2c38;
+  overflow-x:hidden;
+}
+
+/* PAGE TRANSITION */
+.page{
+  display:none;
+  min-height:100vh;
+  padding:40px 20px;
+  text-align:center;
+  animation: pageFade 0.6s ease;
+  position:relative;
+  z-index:1;
+}
+.page.active{display:block;}
+
+@keyframes pageFade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+h1{color:#b03060;}
+p{line-height:1.9;font-size:1.05rem;}
+
+button{
+  margin-top:30px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#b03060;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.gallery div{
+  opacity:0;
+  transform:translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.gallery div:nth-child(1){animation-delay:0.1s;}
+.gallery div:nth-child(2){animation-delay:0.2s;}
+.gallery div:nth-child(3){animation-delay:0.3s;}
+.gallery div:nth-child(4){animation-delay:0.4s;}
+.gallery div:nth-child(5){animation-delay:0.5s;}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+.caption{
+  font-size:0.9rem;
+  margin-top:6px;
+  color:#7a2e55;
+  opacity:0;
+  animation: captionFade 0.6s ease forwards;
+  animation-delay:0.9s;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes captionFade{
+  to{opacity:1;}
+}
+
+/* SINGLE IMAGE */
+.single-img{
+  width:80%;
+  max-width:320px;
+  border-radius:20px;
+  margin:20px auto;
+  opacity:0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.special-line{
+  margin-top:20px;
+  font-size:1rem;
+  color:#7a2e55;
+  font-style:italic;
+}
+
+/* FLOATING HEARTS */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  color:rgba(176,48,96,0.35);
+  font-size:16px;
+  animation: floatUp linear forwards;
+  pointer-events:none;
+  z-index:0;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>⏳ Countdown to 31 January 2026</h1>
+  <h2 id="count">Loading...</h2>
+  <div class="special-line">
+    This day is special, because you are ✨
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>💌 For You</h1>
+  <p>
+    On your birthday, I just want you to know how deeply appreciated you are.
+    The grace you carry, the calm you bring, and the kindness you show without
+    expecting anything in return make you truly special.
+  </p>
+
+  <div class="gallery">
+    <div>
+      <img src="photos/p1.jpg">
+      <div class="caption">Effortless comfort, wrapped in a smile that feels like home.</div>
+    </div>
+    <div>
+      <img src="photos/p2.jpg">
+      <div class="caption">Sunshine finds its way wherever you stand.</div>
+    </div>
+  </div>
+
+  <button onclick="next()">Next 💕</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>👑 Grace in Every Form</h1>
+  <div class="gallery">
+    <div>
+      <img src="photos/sari1.jpg">
+      <div class="caption">Grace that doesn’t ask for attention — it simply exists.</div>
+    </div>
+    <div>
+      <img src="photos/sari2.jpg">
+      <div class="caption">Tradition meets a smile that feels alive.</div>
+    </div>
+    <div>
+      <img src="photos/sari3.jpg">
+      <div class="caption">Poise that speaks louder than words.</div>
+    </div>
+    <div>
+      <img src="photos/eye.jpg">
+      <div class="caption">Eyes that carry warmth, depth, and a thousand unspoken stories.</div>
+    </div>
+  </div>
+  <button onclick="next()">Next ✨</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>🌿 Just You</h1>
+  <div class="gallery">
+    <div>
+      <img src="photos/casual1.jpg">
+      <div class="caption">Simple moments, quietly beautiful.</div>
+    </div>
+    <div>
+      <img src="photos/casual2.jpg">
+      <div class="caption">Soft reflections of a calm soul.</div>
+    </div>
+    <div>
+      <img src="photos/casual3.jpg">
+      <div class="caption">A gentle smile, untouched and real.</div>
+    </div>
+    <div>
+      <img src="photos/casual4.jpg">
+      <div class="caption">A little mischief, a lot of charm.</div>
+    </div>
+  </div>
+  <button onclick="next()">Next 🌸</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>✨ A Wish</h1>
+  <img src="photos/final1.jpg" class="single-img">
+  <p>
+    May life always meet you with kindness.
+    May your dreams feel closer, your heart feel lighter,
+    and your path feel right even on uncertain days.
+  </p>
+  <button onclick="next()">Next 💖</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <h1>💖</h1>
+  <div class="gallery">
+    <div><img src="photos/end1.jpg"></div>
+    <div><img src="photos/end2.jpg"></div>
+    <div><img src="photos/end3.jpg"></div>
+    <div><img src="photos/end4.jpg"></div>
+    <div><img src="photos/end5.jpg"></div>
+  </div>
+  <p style="margin-top:30px;font-size:1.1rem;">
+    Thank you for being there 🌸
+  </p>
+</div>
+
+<script>
+let pages=document.querySelectorAll('.page');
+let i=0;
+
+function next(){
+  pages[i].classList.remove('active');
+  i++;
+  pages[i].classList.add('active');
+}
+
+/* COUNTDOWN */
+const target = new Date(2026, 0, 31).getTime();
+setInterval(()=>{
+  const now = Date.now();
+  const diff = target - now;
+
+  if(diff <= 0){
+    document.getElementById('count').innerText = "It’s Your Day 🎂";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('count').innerText =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}, 1000);
+
+/* FLOATING HEARTS */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(4+Math.random()*4)+"s";
+  heart.style.fontSize=(14+Math.random()*10)+"px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),8000);
+}
+
+setInterval(createHeart,600);
+</script>
+
+</body>
+</html>
